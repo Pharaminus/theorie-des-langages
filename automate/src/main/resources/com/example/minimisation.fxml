@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane   xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.MinisationController" >
+    <top>
+        <MenuBar fx:id="myMenubar">
+        <menus>
+        <Menu text="AFD" fx:id="menu1">
+            <items>
+            <MenuItem text="New" onAction="#switchToAFD"  />
+            <MenuItem text="Open"   />
+            <MenuItem text="Save"  />
+            <MenuItem text="Exit" />
+            </items>
+        </Menu>
+        <Menu text="Canoniser">
+            <items>
+                <MenuItem text="New" onAction="#switchToMinimisation"  />
+                <MenuItem text="Open"  />
+                <MenuItem text="Save"  />
+                <MenuItem text="Exit" />
+            </items>
+        </Menu>
+        </menus>
+    </MenuBar>
+    </top>
+    <center>
+        <SplitPane orientation="HORIZONTAL" dividerPositions="0.5">
+            <VBox spacing="10"  fx:id="vboxmainleft">
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldSymboles"  promptText="symboles automate" HBox.hgrow="ALWAYS" />
+                    <Button  text="Ajouter les symboles de l'alphabet" onAction="#ajouterSymbole" fx:id="submitButtonSymbole"  />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtats" promptText="Ajouter les etats"  HBox.hgrow="ALWAYS"/>
+                    <Button text="Ajouter etat" onAction="#ajouterEtat" fx:id="submitButtonEtats" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtatInitiale" promptText="Entrer l'etat initiale"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonEtatInitiale"  text="Ajouter etat initiale" onAction="#ajouterEtatInitiale" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtatFinale" promptText="Entrer les etats finaux"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonEtatFinale" onAction="#ajouterEtatFinale"   text="Ajouter etat finale" />
+                </HBox>
+                <HBox spacing="10" >
+                    <TextField fx:id="inputTextFieldEtatDepart"  promptText="Depart"  HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="inputTextFieldEtiquette"  promptText="Etiquette"  HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="inputTextFieldEtatArriver"  promptText="Arriver"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonTransition"  text="Ajouter une transition" onAction="#ajouterTransition" />
+                </HBox>
+                <HBox spacing="10">
+                    <Label fx:id="ZoneMessage" text="Entrer votre automate" HBox.hgrow="ALWAYS" />
+                </HBox>
+                <!-- <HBox>
+                    <TextField fx:id="inputTextFieldChaine" promptText="Entrer la chaine a verifier"  HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <HBox >
+                    <Button fx:id="submitButtonLireChaine" onAction="#verifierChaine"   text="Verifier la chaine" style="-fx-background-color: #2a2a9d; -fx-text-fill: white;"/>
+                </HBox> -->
+
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                
+            </VBox>
+            <VBox fx:id="vboxmainright">
+                <children>
+                    <GridPane fx:id="tableGrid" hgap="2.0" vgap="2.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top=".0" />
+                        </padding>
+                    </GridPane>
+                    <Region />
+                    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                        <children>
+                            <!-- <Button fx:id="submitButton"  mnemonicParsing="false" onAction="#addRow" text="Ajouter Ligne" /> -->
+                            <Button  mnemonicParsing="false"  text="Reinitialiser"  />
+                            <Button  mnemonicParsing="false" text="Supprimer etat" onAction="#removeRow"  />
+                            <Button  mnemonicParsing="false" text="Supprimer symbole" onAction="#removeColumn"  />
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                    </HBox>
+                </children>
+                </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -7,6 +7,7 @@ pour lancer l'application taper la commande
 **java --module-path lib/ --add-modules javafx.controls,javafx.fxml -jar automate.jar**
     vous devez avoir le dossier lib dans le meme repertoire que le fichier jar .
     sinon si vous avez javafx deja dans votre machine vous devez juste preciser le chemin vers le dossier *lib*
+    il faut donc decompresser le fichier _lib.jar_
 ### Prerequisites 
  - **Java 17 minimun** 
 

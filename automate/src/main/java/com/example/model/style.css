@@ -1,0 +1,132 @@
+/* Style pour les Labels */
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+.main-layout{
+    -fx-background-color: #130d2b;
+
+}
+/* Style pour les Buttons */
+.button {
+    -fx-background-color: #402c97;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 20;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 250px;
+}
+
+
+.button:hover {
+    -fx-background-color: #2a2dc2;
+    
+}
+
+/* Style pour les TextFields */
+.text-field {
+    -fx-background-color: #141a24;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #aaaaaa;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 400px;
+    -fx-margin: 0 300 100 100;
+    -fx-text-align: center;
+    
+}
+
+/* Style pour les CheckBoxes */
+.check-box {
+    -fx-text-fill: #ffffff;
+}
+
+/* Style pour les RadioButtons */
+.radio-button {
+    -fx-text-fill: #ffffff;
+
+}
+
+/* Style pour les VBox panels */
+.vbox {
+    -fx-background-color: #151322;
+    -fx-padding: 10;
+    -fx-border-radius: 10;
+}
+
+/* Style pour le MenuBar */
+.menu-bar {
+    -fx-background-color: #444444;
+    
+}
+
+.menu {
+    -fx-text-fill: #0e0d1d;
+}
+
+.menu-item {
+    -fx-text-fill: #ffffff;
+}
+
+/* Style pour le GridPane */
+.grid-pane {
+    -fx-padding: 10;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+/* Style pour les Table cells in GridPane */
+.grid-pane .label {
+    -fx-text-fill: #ffffff;
+    color: #0c1725;
+}
+
+/* Style pour les specific labels in the GridPane */
+.grid-pane .header-label {
+    -fx-font-weight: bold;
+}
+
+.leftPanel{
+    -fx-background-color: rgb(17, 17, 37);
+}
+
+.rigthPanel{
+    -fx-background-color: rgb(17, 17, 37);
+    /* -fx-pref-width: 50%; */
+}
+
+
+#transitionTable{
+    -fx-background-color: #141920;
+    -fx-color: #0c1725;
+}
+#symbolsAutomateField{
+    -fx-color: red;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+
+#boutonAjouterTransition{
+    /* -fx-display: flex;
+    -ms-flex-direction: row;
+    -fx-justify-content: space-between; */
+}
+#resultLabel{
+    -fx-pref-width: 800;
+    -fx-pref-height: 80;
+    -fx-background-color: #242b38;
+    -fx-border: solid  rgb(59, 59, 59) 200;
+    -fx-margin-left: 100;
+    border-radius: 80px;
+    -fx-text-fill: #a6b2c0;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+
+.TableColumn{
+    -fx-background-color: #242b38;
+
+}

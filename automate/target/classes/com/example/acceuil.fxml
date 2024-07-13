@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane   xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.AcceuilController" >
+    <top>
+        <MenuBar fx:id="myMenubar">
+            <menus>
+            <Menu text="AFD" fx:id="menu1" style="-fx-text-fill: #ffffff;">
+                <items>
+                <MenuItem text="New" onAction="#switchToAFD"  />
+                <MenuItem text="Importer" onAction="#importAutomate"  />
+                <MenuItem text="Exporter" onAction="#exportAutomate" />
+                <MenuItem text="Simuler" onAction="#grapheAutomate"/>
+                <MenuItem text="Exit" />
+                </items>
+            </Menu>
+            <Menu text="Simuler">
+                <items>
+                    <MenuItem text="Visualiser" onAction="#grapheAutomate"  />
+                    <!-- <MenuItem text="Open"  />
+                    <MenuItem text="Save"  />
+                    <MenuItem text="Exit" /> -->
+                </items>
+            </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SplitPane orientation="HORIZONTAL" dividerPositions="0.5">
+            <VBox spacing="10"  fx:id="vboxmainleft">
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldSymboles"  promptText="Alphabet ex: a,b" HBox.hgrow="ALWAYS" />
+                    <Button  text="Ajouter les symboles de l'alphabet" onAction="#ajouterSymbole" fx:id="submitButtonSymbole"  />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtats" promptText="Etats ex: 1,2"  HBox.hgrow="ALWAYS"/>
+                    <Button text="Ajouter etat" onAction="#ajouterEtat" fx:id="submitButtonEtats" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtatInitiale" promptText="Etat initiale ex: 1"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonEtatInitiale"  text="Ajouter etat initiale" onAction="#ajouterEtatInitiale" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="inputTextFieldEtatFinale" promptText="Etats finaux ex: 2,3"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonEtatFinale" onAction="#ajouterEtatFinale"   text="Ajouter etat finale" />
+                </HBox>
+                <HBox spacing="10" >
+                    <TextField fx:id="inputTextFieldEtatDepart"  promptText="Depart ex : 1"  HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="inputTextFieldEtiquette"  promptText="Etiquette ex: a"  HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="inputTextFieldEtatArriver"  promptText="Arriver ex : 2"  HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="submitButtonTransition"  text="Ajouter une transition" onAction="#ajouterTransition" />
+                </HBox>
+                <HBox spacing="10">
+                    <Label fx:id="ZoneMessage" text="Entrer votre automate" HBox.hgrow="ALWAYS" />
+                </HBox>
+                <HBox>
+                    <TextField fx:id="inputTextFieldChaine" promptText="Entrer la chaine a verifier"  HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <HBox >
+                    <Button fx:id="submitButtonLireChaine" onAction="#verifierChaine"   text="Verifier la chaine" style="-fx-background-color: #2a2a9d; -fx-text-fill: white;"/>
+                </HBox>
+
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                
+            </VBox>
+            <VBox fx:id="vboxmainright">
+                <Label fx:id="titreAutomate">AUTOMATE FINI DETERMINISTE</Label>
+                <children >
+                    <HBox>
+                        <VBox>
+                            <GridPane fx:id="tableGridSymbole" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelTableTransitionSymbole">Symboles</Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                        </VBox>
+                        <VBox>
+                            <GridPane fx:id="tableGridEtat" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatInit"> Etats </Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                        </VBox>
+                        <VBox>
+                            <GridPane fx:id="tableGridEtatInit" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatInit"> EtatInit </Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                        </VBox>
+                        <VBox>
+                            <GridPane fx:id="tableGridEtatFinaux" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatFinaux">Etat finaux</Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                        </VBox>
+                        <HBox>
+                            <padding>
+                                    <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
+                            </padding>
+                            <GridPane fx:id="tableGridEtatDepart" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatFinaux">Depart</Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="2.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                            <GridPane fx:id="tableGridEtiquette" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatFinaux">Etiquette</Label>
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="2.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                            <GridPane fx:id="tableGridEtatArriver" hgap="10.0" vgap="2.0">
+                                <Label fx:id="labelEtatFinaux"> Arriver</Label>
+
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <padding>
+                                    <Insets bottom="5.0" left="2.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                        </HBox>
+                    </HBox>
+                    
+                    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                        <children>
+                            <Button  mnemonicParsing="false" text="Minimiser" onAction="#minimiser"  />
+                            <Button  mnemonicParsing="false"  text="Reinitialiser" onAction="#switchToAFD"   />
+                            <Button  mnemonicParsing="false" text="Supprimer transition" onAction="#supprimerTransition"  />
+                            <Button  mnemonicParsing="false" text="Regex" onAction="#supprimerTransition"  />
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                    </HBox>
+                </children>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
